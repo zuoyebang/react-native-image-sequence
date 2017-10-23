@@ -6,6 +6,8 @@ import android.net.Uri;
 import com.facebook.common.util.UriUtil;
 
 import javax.annotation.Nullable;
+
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,7 +17,7 @@ public class RCTResourceDrawableIdHelper {
     private Map<String, Integer> mResourceDrawableIdMap;
 
     public RCTResourceDrawableIdHelper() {
-        mResourceDrawableIdMap = new HashMap<String, Integer>();
+        mResourceDrawableIdMap = Collections.synchronizedMap(new HashMap<String, Integer>());
     }
 
     public int getResourceDrawableId(Context context, @Nullable String name) {
